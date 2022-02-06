@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import MetaData from '../layout/MetaData'
 
 import { useAlert } from 'react-alert'
@@ -9,7 +9,7 @@ import { UPDATE_PASSWORD_RESET } from '../../constants/userConstants'
 
 const UpdatePassword = ({ history }) => {
 
-    const [oldPassword, setOldPassword] = useState('')
+    // const [oldPassword, setOldPassword] = useState('')
     const [password, setPassword] = useState('')
 
     const alert = useAlert();
@@ -40,7 +40,7 @@ const UpdatePassword = ({ history }) => {
         e.preventDefault();
 
         const formData = new FormData();
-        formData.set('oldPassword', oldPassword);
+        // formData.set('oldPassword', oldPassword);
         formData.set('password', password);
 
         dispatch(updatePassword(formData))

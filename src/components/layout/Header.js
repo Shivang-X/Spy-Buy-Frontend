@@ -14,7 +14,7 @@ const Header = () => {
     const dispatch = useDispatch();
 
     const { user, loading } = useSelector(state => state.auth)
-    const { cartItems } = useSelector(state => state.cart)
+    // const { cartItems } = useSelector(state => state.cart)
 
     const logoutHandler = () => {
         dispatch(logout());
@@ -27,7 +27,7 @@ const Header = () => {
                 <div className="col-12 col-md-3">
                     <div className="navbar-brand">
                         <Link to="/">
-                            <img src="/images/shopit_logo.png" />
+                            <img src="/images/shopit_logo.png" alt='logo' />
                         </Link>
                     </div>
                 </div>

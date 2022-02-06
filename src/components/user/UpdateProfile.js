@@ -15,9 +15,9 @@ const UpdateProfile = ({ history }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [avatar, setAvatar] = useState('');
-  const [avatarPreview, setAvatarPreview] = useState(
-    '/images/default_avatar.jpg'
-  );
+  // const [avatarPreview, setAvatarPreview] = useState(
+  //   '/images/default_avatar.jpg'
+  // );
 
   const alert = useAlert();
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const UpdateProfile = ({ history }) => {
     if (user) {
       setName(user.name);
       setEmail(user.email);
-      setAvatarPreview(user.avatar.url);
+      // setAvatarPreview(user.avatar.url);
     }
 
     if (error) {
@@ -47,7 +47,7 @@ const UpdateProfile = ({ history }) => {
         type: UPDATE_PROFILE_RESET,
       });
     }
-  }, [dispatch, alert, error, history, isUpdated]);
+  }, [dispatch, alert, error, history, isUpdated, user]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -65,7 +65,7 @@ const UpdateProfile = ({ history }) => {
 
     reader.onload = () => {
       if (reader.readyState === 2) {
-        setAvatarPreview(reader.result);
+        // setAvatarPreview(reader.result);
         setAvatar(reader.result);
       }
     };

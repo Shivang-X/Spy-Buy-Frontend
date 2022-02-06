@@ -16,9 +16,9 @@ const Register = ({ history }) => {
   const { name, email, password } = user;
 
   const [avatar, setAvatar] = useState("");
-  const [avatarPreview, setAvatarPreview] = useState(
-    "/images/default_avatar.jpg"
-  );
+  // const [avatarPreview, setAvatarPreview] = useState(
+  //   "/images/default_avatar.jpg"
+  // );
 
   const alert = useAlert();
   const dispatch = useDispatch();
@@ -56,7 +56,7 @@ const Register = ({ history }) => {
 
       reader.onload = () => {
         if (reader.readyState === 2) {
-          setAvatarPreview(reader.result);
+          // setAvatarPreview(reader.result);
           setAvatar(reader.result);
         }
       };

@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Pagination from 'react-js-pagination'
 import Slider from 'rc-slider'
 import 'rc-slider/assets/index.css';
@@ -76,7 +76,7 @@ const Home = ({ match }) => {
                         </div>
                         <div className="sale-img">
 
-                    <img src="/images/tuxpi.com.1641876660.jpg" className="home-img"/>
+                    <img src="/images/tuxpi.com.1641876660.jpg" className="home-img" alt='sale'/>
                         </div>
 
                     </div>

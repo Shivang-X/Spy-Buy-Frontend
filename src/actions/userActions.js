@@ -50,7 +50,7 @@ export const login = (email, password) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post('/api/v1/login', { email, password }, config)
+        const { data } = await axios.post('https://spy-buy-backend.herokuapp.com/api/v1/login', { email, password }, config)
         console.log(data)
         if(data.success){
             dispatch({
@@ -85,7 +85,7 @@ export const register = (userData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post('/api/v1/register', userData, config)
+        const { data } = await axios.post('https://spy-buy-backend.herokuapp.com/api/v1/register', userData, config)
 
         dispatch({
             type: REGISTER_USER_SUCCESS,
@@ -106,7 +106,7 @@ export const loadUser = () => async (dispatch) => {
 
         dispatch({ type: LOAD_USER_REQUEST })
 
-        const { data } = await axios.get('api/v1/me')
+        const { data } = await axios.get('https://spy-buy-backend.herokuapp.com/api/v1/me')
 
         dispatch({
             type: LOAD_USER_SUCCESS,
@@ -133,7 +133,7 @@ export const updateProfile = (userData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put('/api/v1/me/update', userData, config)
+        const { data } = await axios.put('https://spy-buy-backend.herokuapp.com/api/v1/me/update', userData, config)
 
         dispatch({
             type: UPDATE_PROFILE_SUCCESS,
@@ -160,7 +160,7 @@ export const updatePassword = (passwords) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put('/api/v1/password/update', passwords, config)
+        const { data } = await axios.put('https://spy-buy-backend.herokuapp.com/api/v1/password/update', passwords, config)
 
         dispatch({
             type: UPDATE_PASSWORD_SUCCESS,
@@ -187,7 +187,7 @@ export const forgotPassword = (email) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post('/api/v1/password/forgot', email, config)
+        const { data } = await axios.post('https://spy-buy-backend.herokuapp.com/api/v1/password/forgot', email, config)
 
         dispatch({
             type: FORGOT_PASSWORD_SUCCESS,
@@ -214,7 +214,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/password/reset/${token}`, passwords, config)
+        const { data } = await axios.put(`https://spy-buy-backend.herokuapp.com/api/v1/password/reset/${token}`, passwords, config)
 
         dispatch({
             type: NEW_PASSWORD_SUCCESS,
@@ -233,7 +233,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
     try {
 
-        await axios.get('/api/v1/logout')
+        await axios.get('https://spy-buy-backend.herokuapp.com/api/v1/logout')
 
         dispatch({
             type: LOGOUT_SUCCESS,
@@ -253,7 +253,7 @@ export const allUsers = () => async (dispatch) => {
 
         dispatch({ type: ALL_USERS_REQUEST })
 
-        const { data } = await axios.get('/api/v1/admin/users')
+        const { data } = await axios.get('https://spy-buy-backend.herokuapp.com/api/v1/admin/users')
 
         dispatch({
             type: ALL_USERS_SUCCESS,
@@ -280,7 +280,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`/api/v1/admin/user/${id}`, userData, config)
+        const { data } = await axios.put(`https://spy-buy-backend.herokuapp.com/api/v1/admin/user/${id}`, userData, config)
 
         dispatch({
             type: UPDATE_USER_SUCCESS,
@@ -302,7 +302,7 @@ export const getUserDetails = (id) => async (dispatch) => {
         dispatch({ type: USER_DETAILS_REQUEST })
 
 
-        const { data } = await axios.get(`/api/v1/admin/user/${id}`)
+        const { data } = await axios.get(`https://spy-buy-backend.herokuapp.com/api/v1/admin/user/${id}`)
 
         dispatch({
             type: USER_DETAILS_SUCCESS,
@@ -323,7 +323,7 @@ export const deleteUser = (id) => async (dispatch) => {
 
         dispatch({ type: DELETE_USER_REQUEST })
 
-        const { data } = await axios.delete(`/api/v1/admin/user/${id}`)
+        const { data } = await axios.delete(`https://spy-buy-backend.herokuapp.com/api/v1/admin/user/${id}`)
 
         dispatch({
             type: DELETE_USER_SUCCESS,

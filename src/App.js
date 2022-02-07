@@ -57,7 +57,7 @@ function App() {
     store.dispatch(loadUser())
 
     async function getStripApiKey() {
-      const { data } = await axios.get('/api/v1/stripeapi');
+      const { data } = await axios.get('https://spy-buy-backend.herokuapp.com/api/v1/stripeapi');
       setStripeApiKey(data.stripeApiKey)
     }
 

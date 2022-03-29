@@ -55,7 +55,7 @@ export const login = (email, password) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post(`${local}/api/v1/login`, { email, password }, { withCredentials: true})
+        const { data } = await axios.post(`${url}/api/v1/login`, { email, password }, { withCredentials: true})
         // const { data } = await axios.get(`http://localhost:4000/api/v1/c`, { withCredentials: true})
         // const data = await fetch(
         //     `http://localhost:4000/api/v1/coo`

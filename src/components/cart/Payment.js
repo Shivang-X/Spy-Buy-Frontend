@@ -76,7 +76,8 @@ const Payment = ({ history }) => {
         },
       };
 
-      res = await axios.post('http://localhost:4000/api/v1/payment/process', paymentData, { withCredentials: true});
+      // res = await axios.post('http://localhost:4000/api/v1/payment/process', paymentData, { withCredentials: true});
+      res = await axios.post('https://spy-buy-backend.herokuapp.com/api/v1/payment/process', paymentData, { withCredentials: true});
 
       const clientSecret = res.data.client_secret;
 

@@ -76,7 +76,7 @@ const Payment = ({ history }) => {
         },
       };
 
-      res = await axios.post('/api/v1/payment/process', paymentData, config);
+      res = await axios.post('http://localhost:4000/api/v1/payment/process', paymentData, { withCredentials: true});
 
       const clientSecret = res.data.client_secret;
 

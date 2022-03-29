@@ -51,17 +51,17 @@ const ConfirmOrder = ({ history }) => {
                         <Fragment>
                             <hr />
                             <div className="cart-item my-1" key={item.product}>
-                                <div className="row">
-                                    <div className="col-4 col-lg-2">
+                                <div className="items">
+                                    <div className="product-img">
                                         <img src={item.image} alt="Laptop" height="45" width="65" />
                                     </div>
 
-                                    <div className="col-5 col-lg-6">
+                                    <div className="desc">
                                         <Link to={`/product/${item.product}`}>{item.name}</Link>
                                     </div>
 
 
-                                    <div className="col-4 col-lg-4 mt-4 mt-lg-0">
+                                    <div className="quantity">
                                         <p>{item.quantity} x ${item.price} = <b>${(item.quantity * item.price).toFixed(2)}</b></p>
                                     </div>
 
@@ -76,7 +76,7 @@ const ConfirmOrder = ({ history }) => {
                 </div>
 
                 <div className="col-12 col-lg-3 my-4">
-                    <div id="order_summary">
+                    <div className="order_summary">
                         <h4>Order Summary</h4>
                         <hr />
                         <p>Subtotal:  <span className="order-summary-values">${itemsPrice}</span></p>

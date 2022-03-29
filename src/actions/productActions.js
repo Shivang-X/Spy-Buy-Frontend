@@ -32,16 +32,18 @@ import {
     CLEAR_ERRORS
 
 } from '../constants/productConstants'
-
+const local = 'http://localhost:4000'
+const host = 'https://spy-buy-backend.herokuapp.com'
+const  url = host;
 export const getProducts = (keyword = '', currentPage = 1, price, category, rating = 0) => async (dispatch) => {
     try {
 
         dispatch({ type: ALL_PRODUCTS_REQUEST })
 
-        let link = `https://spy-buy-backend.herokuapp.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`
+        let link = `${url}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`
 
         if (category) {
-            link = `https://spy-buy-backend.herokuapp.com/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}&ratings[gte]=${rating}`
+            link = `${url}/api/v1/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&category=${category}&ratings[gte]=${rating}`
         }
 
         const { data } = await axios.get(link)
@@ -52,6 +54,7 @@ export const getProducts = (keyword = '', currentPage = 1, price, category, rati
         })
 
     } catch (error) {
+        console.log(error)
         dispatch({
             type: ALL_PRODUCTS_FAIL,
             payload: error.response.data.message
@@ -70,7 +73,7 @@ export const newProduct = (productData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post(`https://spy-buy-backend.herokuapp.com/api/v1/admin/product/new`, productData, config)
+        const { data } = await axios.post(`${url}/api/v1/admin/product/new`, productData, config)
 
         dispatch({
             type: NEW_PRODUCT_SUCCESS,
@@ -91,7 +94,7 @@ export const deleteProduct = (id) => async (dispatch) => {
 
         dispatch({ type: DELETE_PRODUCT_REQUEST })
 
-        const { data } = await axios.delete(`https://spy-buy-backend.herokuapp.com/api/v1/admin/product/${id}`)
+        const { data } = await axios.delete(`${url}/api/v1/admin/product/${id}`)
 
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
@@ -118,7 +121,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`https://spy-buy-backend.herokuapp.com/api/v1/admin/product/${id}`, productData, config)
+        const { data } = await axios.put(`${url}/api/v1/admin/product/${id}`, productData, config)
 
         dispatch({
             type: UPDATE_PRODUCT_SUCCESS,
@@ -138,7 +141,7 @@ export const getProductDetails = (id) => async (dispatch) => {
 
         dispatch({ type: PRODUCT_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`https://spy-buy-backend.herokuapp.com/api/v1/product/${id}`)
+        const { data } = await axios.get(`${url}/api/v1/product/${id}`)
 
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
@@ -164,7 +167,7 @@ export const newReview = (reviewData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`https://spy-buy-backend.herokuapp.com/api/v1/review`, reviewData, config)
+        const { data } = await axios.put(`${url}/api/v1/review`, reviewData, config)
 
         dispatch({
             type: NEW_REVIEW_SUCCESS,
@@ -185,7 +188,7 @@ export const getAdminProducts = () => async (dispatch) => {
 
         dispatch({ type: ADMIN_PRODUCTS_REQUEST })
 
-        const { data } = await axios.get(`https://spy-buy-backend.herokuapp.com/api/v1/admin/products`)
+        const { data } = await axios.get(`${url}/api/v1/admin/products`)
 
         dispatch({
             type: ADMIN_PRODUCTS_SUCCESS,
@@ -207,7 +210,7 @@ export const getProductReviews = (id) => async (dispatch) => {
 
         dispatch({ type: GET_REVIEWS_REQUEST })
 
-        const { data } = await axios.get(`https://spy-buy-backend.herokuapp.com/api/v1/reviews?id=${id}`)
+        const { data } = await axios.get(`${url}/api/v1/reviews?id=${id}`)
 
         dispatch({
             type: GET_REVIEWS_SUCCESS,
@@ -229,7 +232,7 @@ export const deleteReview = (id, productId) => async (dispatch) => {
 
         dispatch({ type: DELETE_REVIEW_REQUEST })
 
-        const { data } = await axios.delete(`https://spy-buy-backend.herokuapp.com/api/v1/reviews?id=${id}&productId=${productId}`)
+        const { data } = await axios.delete(`${url}/api/v1/reviews?id=${id}&productId=${productId}`)
 
         dispatch({
             type: DELETE_REVIEW_SUCCESS,

@@ -75,8 +75,7 @@ const Home = ({ match }) => {
                             <span>Get your new Iphone now</span>
                         </div>
                         <div className="sale-img">
-
-                    <img src="/images/tuxpi.com.1641876660.jpg" className="home-img" alt='sale'/>
+                            <img src="/images/tuxpi.com.1641876660.jpg" className="home-img" alt='sale'/>
                         </div>
 
                     </div>

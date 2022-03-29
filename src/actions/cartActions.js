@@ -6,8 +6,12 @@ import {
   EMPTY_CART,
 } from '../constants/cartConstants';
 
+const local = 'http://localhost:4000'
+const host = 'https://spy-buy-backend.herokuapp.com'
+const url = host;
+
 export const addItemToCart = (id, quantity) => async (dispatch, getState) => {
-  const { data } = await axios.get(`https://spy-buy-backend.herokuapp.com/api/v1/product/${id}`);
+  const { data } = await axios.get(`${url}/api/v1/product/${id}`);
 
   dispatch({
     type: ADD_TO_CART,

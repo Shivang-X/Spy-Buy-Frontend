@@ -38,7 +38,7 @@ import {
     CLEAR_ERRORS
 } from '../constants/userConstants'
 
-const local = 'http://localhost:4000'
+// const local = 'http://localhost:4000'
 const host = 'https://spy-buy-backend.herokuapp.com'
 const url = host;
 
@@ -48,11 +48,11 @@ export const login = (email, password) => async (dispatch) => {
 
         dispatch({ type: LOGIN_REQUEST })
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // }
 
         const { data } = await axios.post(`${url}/api/v1/login`, { email, password }, { withCredentials: true})
 
@@ -83,13 +83,13 @@ export const register = (userData) => async (dispatch) => {
 
         dispatch({ type: REGISTER_USER_REQUEST })
 
-        const config = {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         'Content-Type': 'multipart/form-data'
+        //     }
+        // }
 
-        const { data } = await axios.post(`${url}/api/v1/register`, userData, config)
+        const { data } = await axios.post(`${url}/api/v1/register`, userData, { withCredentials: true})
 
         dispatch({
             type: REGISTER_USER_SUCCESS,
@@ -112,13 +112,14 @@ export const loadUser = () => async (dispatch) => {
 
         const { data } = await axios.get(`${url}/api/v1/me`, { withCredentials: true})
 
+        console.log(data)
+
         dispatch({
             type: LOAD_USER_SUCCESS,
             payload: data.user
         })
 
     } catch (error) {
-        console.log(error.response.data.msg)
         dispatch({
             type: LOAD_USER_FAIL,
             payload: error.response.data.msg

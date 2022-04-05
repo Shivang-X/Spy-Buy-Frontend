@@ -22,7 +22,7 @@ import {
     CLEAR_ERRORS
 } from '../constants/orderConstants'
 
-const local = 'http://localhost:4000'
+// const local = 'http://localhost:4000'
 const host = 'https://spy-buy-backend.herokuapp.com'
 const url = host;
 

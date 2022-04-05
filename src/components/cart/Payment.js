@@ -70,11 +70,11 @@ const Payment = ({ history }) => {
 
     let res;
     try {
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      };
+      // const config = {
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      // };
 
       // res = await axios.post('http://localhost:4000/api/v1/payment/process', paymentData, { withCredentials: true});
       res = await axios.post('https://spy-buy-backend.herokuapp.com/api/v1/payment/process', paymentData, { withCredentials: true});

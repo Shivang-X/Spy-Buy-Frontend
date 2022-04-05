@@ -32,7 +32,7 @@ import {
     CLEAR_ERRORS
 
 } from '../constants/productConstants'
-const local = 'http://localhost:4000'
+// const local = 'http://localhost:4000'
 const host = 'https://spy-buy-backend.herokuapp.com'
 const  url = host;
 export const getProducts = (keyword = '', currentPage = 1, price, category, rating = 0) => async (dispatch) => {

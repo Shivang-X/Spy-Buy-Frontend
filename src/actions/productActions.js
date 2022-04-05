@@ -82,7 +82,7 @@ export const newProduct = (productData) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_PRODUCT_FAIL,
-            payload: error.response.data.message
+            payload: error.data
         })
     }
 }

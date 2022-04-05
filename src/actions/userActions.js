@@ -50,18 +50,12 @@ export const login = (email, password) => async (dispatch) => {
 
         const config = {
             headers: {
-                'Content-Type': 'application/json',
-                'withCredentials' : 'true'
+                'Content-Type': 'application/json'
             }
         }
 
         const { data } = await axios.post(`${url}/api/v1/login`, { email, password }, { withCredentials: true})
-        // const { data } = await axios.get(`http://localhost:4000/api/v1/c`, { withCredentials: true})
-        // const data = await fetch(
-        //     `http://localhost:4000/api/v1/coo`
-        // );
-        
-        console.log(data)
+
         if(data.success){
             dispatch({
                 type: LOGIN_SUCCESS,
@@ -78,7 +72,7 @@ export const login = (email, password) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: LOGIN_FAIL,
-            payload: error.response.data.message
+            payload: error.data
         })
     }
 }
@@ -124,9 +118,10 @@ export const loadUser = () => async (dispatch) => {
         })
 
     } catch (error) {
+        console.log(error.response.data.msg)
         dispatch({
             type: LOAD_USER_FAIL,
-            payload: error.response
+            payload: error.response.data.msg
         })
     }
 }

@@ -28,6 +28,8 @@ const Login = ({ history, location }) => {
 
     if (error) {
       alert.error(error);
+      // alert(error)
+      // console.log(error.data.msg)
       dispatch(clearErrors());
     }
   }, [dispatch, alert, isAuthenticated, error, history, redirect]);

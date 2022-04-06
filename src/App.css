@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');html,
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+html,
 body {
   font-family: 'DM Sans', sans-serif;;
   width: 100%;
@@ -24,6 +26,19 @@ body {
   border: 0px;
   background-clip: padding-box;
   border-radius: 5px;
+}
+
+:root{
+  --color-text: #616161;
+  --color-text-btn: #ffffff;
+  --card1-gradient-color1: #f12711;
+  --card1-gradient-color2: #f5af19;
+  --card2-gradient-color1: #7F00FF;
+  --card2-gradient-color2: #E100FF;
+  --card3-gradient-color1: #3f2b96;
+  --card3-gradient-color2: #a8c0ff;
+  --card4-gradient-color1: #11998e;
+  --card4-gradient-color2: #38ef7d;
 }
 
 nav {
@@ -196,7 +211,7 @@ footer {
 }
 
 #product_image {
-  margin-top: 9rem;
+  margin-top: 3rem;
 }
 
 /* Loader */
@@ -756,32 +771,22 @@ ul.CTAs a {
   }
 }
 .product_image{
-  width: 30%;
+  width: 20%;
   text-align: center;
 }
 
 .img-set{
+  display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
 }
 
+
 .product-details{
   text-align: center;
 }
 
-:root{
-  --color-text: #616161;
-  --color-text-btn: #ffffff;
-  --card1-gradient-color1: #f12711;
-  --card1-gradient-color2: #f5af19;
-  --card2-gradient-color1: #7F00FF;
-  --card2-gradient-color2: #E100FF;
-  --card3-gradient-color1: #3f2b96;
-  --card3-gradient-color2: #a8c0ff;
-  --card4-gradient-color1: #11998e;
-  --card4-gradient-color2: #38ef7d;
-}
 .admin-cards{
   display: flex;
   justify-content: space-evenly;
@@ -982,8 +987,6 @@ aside p {
 .sidebar-items:hover{
   text-decoration: none;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
 
 
 table {

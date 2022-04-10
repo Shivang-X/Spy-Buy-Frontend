@@ -32,7 +32,7 @@ import {
     CLEAR_ERRORS
 
 } from '../constants/productConstants'
-// const local = 'http://localhost:4000'
+const local = 'http://localhost:4000'
 const host = 'https://spy-buy-backend.herokuapp.com'
 const  url = host;
 export const getProducts = (keyword = '', currentPage = 1, price, category, rating = 0) => async (dispatch) => {
@@ -72,7 +72,7 @@ export const newProduct = (productData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post(`${url}/api/v1/admin/product/new`, productData, config)
+        const { data } = await axios.post(`${url}/api/v1/admin/product/new`, productData, { withCredentials: true})
 
         dispatch({
             type: NEW_PRODUCT_SUCCESS,
@@ -93,7 +93,7 @@ export const deleteProduct = (id) => async (dispatch) => {
 
         dispatch({ type: DELETE_PRODUCT_REQUEST })
 
-        const { data } = await axios.delete(`${url}/api/v1/admin/product/${id}`)
+        const { data } = await axios.delete(`${url}/api/v1/admin/product/${id}`, { withCredentials: true})
 
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
@@ -120,7 +120,7 @@ export const updateProduct = (id, productData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`${url}/api/v1/admin/product/${id}`, productData, config)
+        const { data } = await axios.put(`${url}/api/v1/admin/product/${id}`, productData, { withCredentials: true})
 
         dispatch({
             type: UPDATE_PRODUCT_SUCCESS,
@@ -140,7 +140,7 @@ export const getProductDetails = (id) => async (dispatch) => {
 
         dispatch({ type: PRODUCT_DETAILS_REQUEST })
 
-        const { data } = await axios.get(`${url}/api/v1/product/${id}`)
+        const { data } = await axios.get(`${url}/api/v1/product/${id}`, { withCredentials: true})
 
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
@@ -166,7 +166,7 @@ export const newReview = (reviewData) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.put(`${url}/api/v1/review`, reviewData, config)
+        const { data } = await axios.put(`${url}/api/v1/review`, reviewData, { withCredentials: true})
 
         dispatch({
             type: NEW_REVIEW_SUCCESS,
@@ -187,7 +187,7 @@ export const getAdminProducts = () => async (dispatch) => {
 
         dispatch({ type: ADMIN_PRODUCTS_REQUEST })
 
-        const { data } = await axios.get(`${url}/api/v1/admin/products`)
+        const { data } = await axios.get(`${url}/api/v1/admin/products`, { withCredentials: true})
 
         dispatch({
             type: ADMIN_PRODUCTS_SUCCESS,
@@ -209,7 +209,7 @@ export const getProductReviews = (id) => async (dispatch) => {
 
         dispatch({ type: GET_REVIEWS_REQUEST })
 
-        const { data } = await axios.get(`${url}/api/v1/reviews?id=${id}`)
+        const { data } = await axios.get(`${url}/api/v1/reviews?id=${id}`, { withCredentials: true})
 
         dispatch({
             type: GET_REVIEWS_SUCCESS,
@@ -231,7 +231,7 @@ export const deleteReview = (id, productId) => async (dispatch) => {
 
         dispatch({ type: DELETE_REVIEW_REQUEST })
 
-        const { data } = await axios.delete(`${url}/api/v1/reviews?id=${id}&productId=${productId}`)
+        const { data } = await axios.delete(`${url}/api/v1/reviews?id=${id}&productId=${productId}`, { withCredentials: true})
 
         dispatch({
             type: DELETE_REVIEW_SUCCESS,

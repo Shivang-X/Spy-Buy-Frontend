@@ -38,7 +38,7 @@ import {
     CLEAR_ERRORS
 } from '../constants/userConstants'
 
-// const local = 'http://localhost:4000'
+const local = 'http://localhost:4000'
 const host = 'https://spy-buy-backend.herokuapp.com'
 const url = host;
 
@@ -259,7 +259,7 @@ export const allUsers = () => async (dispatch) => {
 
         dispatch({ type: ALL_USERS_REQUEST })
 
-        const { data } = await axios.get(`${url}/api/v1/admin/users`)
+        const { data } = await axios.get(`${url}/api/v1/admin/users`, { withCredentials: true})
 
         dispatch({
             type: ALL_USERS_SUCCESS,

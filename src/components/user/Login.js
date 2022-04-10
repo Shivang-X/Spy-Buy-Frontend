@@ -49,9 +49,9 @@ const Login = ({ history, location }) => {
 
           <form className="shadow-lg" onSubmit={submitHandler}>
             <div className="test">
-              <section class="login-panel">
-                <div class="left-side"><i class="fa fa-user-circle fa-5x" aria-hidden="true"></i></div>
-                <div class="right-side">
+              <section className="login-panel">
+                <div className="left-side"><i className="fa fa-user-circle fa-5x" aria-hidden="true"></i></div>
+                <div className="right-side">
                   <h1>Login</h1>
                   <input
                     type="email"
@@ -72,7 +72,7 @@ const Login = ({ history, location }) => {
                   <input
                     type="submit"
                     value="let's go"
-                    class="submit-btn"
+                    className="submit-btn"
                     disabled={loading ? true : false}
                   />
                   <Link to="/register" className="float-right mt-3">

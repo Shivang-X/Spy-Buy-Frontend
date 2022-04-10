@@ -81,9 +81,9 @@ const Register = ({ history }) => {
 
       <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
       <div className="test">
-        <section class="login-panel">
-          <div class="left-side"><i class="fa fa-user-circle fa-5x" aria-hidden="true"></i></div>
-          <div class="right-side">
+        <section className="login-panel">
+          <div className="left-side"><i className="fa fa-user-circle fa-5x" aria-hidden="true"></i></div>
+          <div className="right-side">
             <h1>Sign Up</h1>
             <input
               type="text"
@@ -120,7 +120,7 @@ const Register = ({ history }) => {
             <input
               type="submit"
               value="let's go"
-              class="submit-btn"
+              className="submit-btn"
               disabled={loading ? true : false}
             />
           </div>

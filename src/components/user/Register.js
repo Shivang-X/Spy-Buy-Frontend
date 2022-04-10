@@ -11,9 +11,10 @@ const Register = ({ history }) => {
     name: "",
     email: "",
     password: "",
+    cpassword:""
   });
 
-  const { name, email, password } = user;
+  const { name, email, password, cpassword } = user;
 
   const [avatar, setAvatar] = useState("");
   // const [avatarPreview, setAvatarPreview] = useState(
@@ -40,15 +41,22 @@ const Register = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
-    const formData = new FormData();
-    formData.set("name", name);
-    formData.set("email", email);
-    formData.set("password", password);
-    formData.set("avatar", avatar);
-
-    dispatch(register(formData));
+    if(password === cpassword){
+ 
+      const formData = new FormData();
+      formData.set("name", name);
+      formData.set("email", email);
+      formData.set("password", password);
+      formData.set("avatar", avatar);
+      
+      dispatch(register(formData));
+    }
+    else{
+      alert.error("Passwords do not match")
+    }
   };
+
+  console.log(user)
 
   const onChange = (e) => {
     if (e.target.name === "avatar") {
@@ -79,7 +87,7 @@ const Register = ({ history }) => {
             <h1>Sign Up</h1>
             <input
               type="text"
-              name=""
+              name="name"
               id=""
               placeholder="Name"
               onChange={onChange}
@@ -87,7 +95,7 @@ const Register = ({ history }) => {
             />
             <input
               type="email"
-              name=""
+              name="email"
               id=""
               placeholder="Email"
               onChange={onChange}
@@ -95,7 +103,7 @@ const Register = ({ history }) => {
             />
             <input
               type="password"
-              name=""
+              name="password"
               id=""
               placeholder="Password"
               onChange={onChange}
@@ -103,11 +111,11 @@ const Register = ({ history }) => {
             />
             <input
               type="password"
-              name=""
+              name="cpassword"
               id=""
               placeholder="Password-confirm"
               onChange={onChange}
-              value={password}
+              value={cpassword}
             />
             <input
               type="submit"

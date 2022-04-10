@@ -27,7 +27,7 @@ const Header = () => {
                 <div className="upper">
                     <div className="navbar-brand">
                         <Link to="/">
-                            <img src="/images/shopit_logo.png" alt='logo' />
+                            <img src="/images/logo2.png" alt='logo' />
                         </Link>
                     </div>
                 {/* </div> */}

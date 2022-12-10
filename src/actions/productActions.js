@@ -32,7 +32,7 @@ import {
     CLEAR_ERRORS
 
 } from '../constants/productConstants'
-const local = 'http://localhost:4000'
+// const local = 'http://localhost:4000'
 const host = 'https://spy-buy-backend-cyu6.onrender.com'
 const  url = host;
 export const getProducts = (keyword = '', currentPage = 1, price, category, rating = 0) => async (dispatch) => {
@@ -66,11 +66,11 @@ export const newProduct = (productData) => async (dispatch) => {
 
         dispatch({ type: NEW_PRODUCT_REQUEST })
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // }
 
         const { data } = await axios.post(`${url}/api/v1/admin/product/new`, productData, { withCredentials: true})
 
@@ -114,11 +114,11 @@ export const updateProduct = (id, productData) => async (dispatch) => {
 
         dispatch({ type: UPDATE_PRODUCT_REQUEST })
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // }
 
         const { data } = await axios.put(`${url}/api/v1/admin/product/${id}`, productData, { withCredentials: true})
 
@@ -160,11 +160,11 @@ export const newReview = (reviewData) => async (dispatch) => {
 
         dispatch({ type: NEW_REVIEW_REQUEST })
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // }
 
         const { data } = await axios.put(`${url}/api/v1/review`, reviewData, { withCredentials: true})
 

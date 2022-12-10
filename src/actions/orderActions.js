@@ -22,7 +22,7 @@ import {
     CLEAR_ERRORS
 } from '../constants/orderConstants'
 
-const local = 'http://localhost:4000'
+// const local = 'http://localhost:4000'
 const host = 'https://spy-buy-backend-cyu6.onrender.com'
 const url = host;
 
@@ -31,11 +31,11 @@ export const createOrder = (order) => async (dispatch, getState) => {
 
         dispatch({ type: CREATE_ORDER_REQUEST })
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // }
 
         const { data } = await axios.post(`${url}/api/v1/order/new`, order, { withCredentials: true})
 
@@ -121,11 +121,11 @@ export const updateOrder = (id, orderData) => async (dispatch) => {
 
         dispatch({ type: UPDATE_ORDER_REQUEST })
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // }
 
         const { data } = await axios.put(`${url}/api/v1/admin/order/${id}`, orderData, { withCredentials: true})
 

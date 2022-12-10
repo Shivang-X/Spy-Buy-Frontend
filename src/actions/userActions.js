@@ -38,7 +38,7 @@ import {
     CLEAR_ERRORS
 } from '../constants/userConstants'
 
-const local = 'http://localhost:4000'
+// const local = 'http://localhost:4000'
 const host = 'https://spy-buy-backend-cyu6.onrender.com'
 const url = host;
 
@@ -280,11 +280,11 @@ export const updateUser = (id, userData) => async (dispatch) => {
 
         dispatch({ type: UPDATE_USER_REQUEST })
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+        // const config = {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // }
 
         const { data } = await axios.put(`${url}/api/v1/admin/user/${id}`, userData, { withCredentials: true})
 

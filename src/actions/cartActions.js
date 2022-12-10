@@ -7,7 +7,7 @@ import {
 } from '../constants/cartConstants';
 
 const local = 'http://localhost:4000'
-const host = 'https://spy-buy-backend.herokuapp.com'
+const host = 'https://spy-buy-backend-cyu6.onrender.com'
 const url = host;
 
 export const addItemToCart = (id, quantity) => async (dispatch, getState) => {

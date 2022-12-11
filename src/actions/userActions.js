@@ -38,10 +38,10 @@ import {
     CLEAR_ERRORS
 } from '../constants/userConstants'
 
-// const local = 'http://localhost:4000'
-// const url = local;
-const host = 'https://spy-buy-backend-cyu6.onrender.com'
-const url = host;
+const local = 'http://localhost:4000'
+const url = local;
+// const host = 'https://spy-buy-backend-cyu6.onrender.com'
+// const url = host;
 
 // Login
 export const login = (email, password) => async (dispatch) => {

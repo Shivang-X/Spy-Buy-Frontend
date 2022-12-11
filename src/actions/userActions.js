@@ -38,10 +38,10 @@ import {
     CLEAR_ERRORS
 } from '../constants/userConstants'
 
-const local = 'http://localhost:4000'
-const url = local;
-// const host = 'https://spy-buy-backend-cyu6.onrender.com'
-// const url = host;
+// const local = 'http://localhost:4000'
+// const url = local;
+const host = 'https://spy-buy-backend-cyu6.onrender.com'
+const url = host;
 
 // Login
 export const login = (email, password) => async (dispatch) => {
@@ -108,19 +108,24 @@ export const register = (userData) => async (dispatch) => {
 // Load user
 export const loadUser = () => async (dispatch) => {
     try {
-
+        console.log("1")
         dispatch({ type: LOAD_USER_REQUEST })
-
+        
+        console.log("2")
         const { data } = await axios.get(`${url}/api/v1/me`, { withCredentials: true})
-
+        
+        console.log("3")
         console.log(data)
-
+        console.log("4")
+        
         dispatch({
             type: LOAD_USER_SUCCESS,
             payload: data.user
         })
-
+        console.log("5")
+        
     } catch (error) {
+        console.log(error)
         dispatch({
             type: LOAD_USER_FAIL,
             payload: error.response.data.msg
